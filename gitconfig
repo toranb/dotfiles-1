@@ -10,7 +10,7 @@
     deleted = red
     untracked = yellow
 [user]
-    name =
-    email =
+	name = toran billups
+	email = toranb@gmail.com
 [push]
     default = matching

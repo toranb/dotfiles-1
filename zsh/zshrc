@@ -231,3 +231,6 @@ export PATH=$PATH:$GOPATH/bin
 
 # EOF
 export ERL_AFLAGS="-kernel shell_history enabled"
+
+# PSQL
+export PATH="/usr/local/opt/postgresql@9.6/bin:$PATH"

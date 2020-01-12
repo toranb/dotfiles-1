@@ -74,6 +74,7 @@ call plug#begin('~/.vim/plugged')
 call ProcessList(b:pluginList, 'AddBundle')
 Plug '~/dotfiles/vim/my-plugins/vim-grep-quickfix'
 Plug '~/dotfiles/vim/my-plugins/vim-wiki-links'
+Plug 'liuchengxu/vim-clap', { 'do': ':Clap install-binary!' }
 call plug#end()
 
 filetype plugin indent on

@@ -68,24 +68,6 @@ else
 fi
 
 #==============
-# Select which conky to symlink
-#==============
-echo -n "Install desktop or laptop conky? (Desk/Lap) => "; read answer
-
-if [[ $answer = "Desk" ]] ; then
-    ln -s ~/dotfiles/conky/_conkyrc_desktop ~/.conkyrc
-else
-    ln -s ~/dotfiles/conky/_conkyrc_laptop ~/.conkyrc
-    # Used to get battery status
-    sudo apt-get -y install acpi
-    if type -p acpi > /dev/null; then
-        echo "acpi Installed" >> $log_file
-    else
-        echo "acpi FAILED TO INSTALL!!!" >> $log_file
-    fi
-fi
-
-#==============
 # Set zsh as the default shell
 #==============
 sudo chsh -s /bin/zsh

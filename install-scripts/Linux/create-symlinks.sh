@@ -10,7 +10,6 @@
 # Variables
 #==============
 dotfiles_dir=~/dotfiles
-log_file=~/install_progress_log.txt
 
 #==============
 # Delete existing dot files and folders
@@ -76,7 +75,4 @@ sudo chsh -s /bin/zsh
 # Give the user a summary of what has been installed
 #==============
 echo -e "\n====== Summary ======\n"
-cat $log_file
-echo
 echo "Enjoy -Jarrod"
-rm $log_file

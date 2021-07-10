@@ -10,7 +10,6 @@
 # Variables
 #==============
 dotfiles_dir=~/dotfiles
-log_file=~/install_progress_log.txt
 
 #==============
 # Delete existing dot files and folders
@@ -68,24 +67,6 @@ else
 fi
 
 #==============
-# Select which conky to symlink
-#==============
-echo -n "Install desktop or laptop conky? (Desk/Lap) => "; read answer
-
-if [[ $answer = "Desk" ]] ; then
-    ln -s ~/dotfiles/conky/_conkyrc_desktop ~/.conkyrc
-else
-    ln -s ~/dotfiles/conky/_conkyrc_laptop ~/.conkyrc
-    # Used to get battery status
-    sudo apt-get -y install acpi
-    if type -p acpi > /dev/null; then
-        echo "acpi Installed" >> $log_file
-    else
-        echo "acpi FAILED TO INSTALL!!!" >> $log_file
-    fi
-fi
-
-#==============
 # Set zsh as the default shell
 #==============
 sudo chsh -s /bin/zsh
@@ -94,7 +75,4 @@ sudo chsh -s /bin/zsh
 # Give the user a summary of what has been installed
 #==============
 echo -e "\n====== Summary ======\n"
-cat $log_file
-echo
 echo "Enjoy -Jarrod"
-rm $log_file

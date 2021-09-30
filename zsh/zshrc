@@ -240,6 +240,7 @@ export PATH="/opt/homebrew/opt/postgresql@12/bin:$PATH"
 
 eval "$(/opt/homebrew/bin/brew shellenv)"
 
+export PATH=/opt/homebrew/bin:$PATH
 export KERL_CONFIGURE_OPTIONS="--without-javac --with-ssl=/opt/homebrew/Cellar/openssl@1.1/1.1.1l"
 
 source /opt/homebrew/opt/asdf/libexec/asdf.sh

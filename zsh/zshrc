@@ -218,7 +218,7 @@ done
 # >>1
 
 # Source Syntaxhighlighting <<1
-source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source /opt/homebrew/opt/zsh-syntax-highlighting/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 # >>1
 
 # Export Go Path <<1
@@ -233,7 +233,17 @@ export PATH=$PATH:$GOPATH/bin
 export ERL_AFLAGS="-kernel shell_history enabled"
 
 # PSQL
-export PATH="/usr/local/opt/postgresql@9.6/bin:$PATH"
-
+export PATH="/opt/homebrew/opt/postgresql@12/bin:$PATH"
+# export PATH="/usr/local/opt/postgresql@9.6/bin:$PATH"
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
-export PATH="$PATH:$HOME/.rvm/bin"
+# export PATH="$PATH:$HOME/.rvm/bin"
+
+eval "$(/opt/homebrew/bin/brew shellenv)"
+
+export KERL_CONFIGURE_OPTIONS="--without-javac --with-ssl=/opt/homebrew/Cellar/openssl@1.1/1.1.1l"
+
+source /opt/homebrew/opt/asdf/libexec/asdf.sh
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion

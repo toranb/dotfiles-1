@@ -39,13 +39,6 @@ else
     echo "Silver searcher FAILED TO INSTALL!!!" >> $log_file
 fi
 
-sudo apt-get -y install tmux
-if type -p tmux > /dev/null; then
-    echo "tmux Installed" >> $log_file
-else
-    echo "tmux FAILED TO INSTALL!!!" >> $log_file
-fi
-
 #==============
 # Give the user a summary of what has been installed
 #==============

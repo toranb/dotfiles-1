@@ -155,9 +155,11 @@ else
     alias ls='ls -F --color'
 fi
 alias iex='iex --erl "-kernel shell_history enabled"'
-alias tmux="tmux -2"  # Fix tmux making vim colors funky
+# alias tmux="tmux -2"  # Fix tmux making vim colors funky
+alias tmux='TERM=screen-256color-bce tmux'
 alias tmuxh='tmux attach -t host-session || tmux new-session -s host-session'
 alias tmuxp='tmux attach -t pair-session || tmux new-session -t host-session -s pair-session'
+export TERM='xterm-256color'
 # >>1
 
 # Functions <<1
@@ -218,7 +220,7 @@ done
 # >>1
 
 # Source Syntaxhighlighting <<1
-source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source /usr/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 # >>1
 
 # Export Go Path <<1
@@ -237,3 +239,9 @@ export PATH="/usr/local/opt/postgresql@9.6/bin:$PATH"
 
 # Add RVM to PATH for scripting. Make sure this is the last PATH variable change.
 export PATH="$PATH:$HOME/.rvm/bin"
+
+. $HOME/.asdf/asdf.sh
+
+export XLA_TARGET=cuda111
+export XLA_FLAGS=--xla_gpu_cuda_data_dir=/usr/lib/cuda-11.2
+export PATH="~/.asdf/installs/elixir/1.14.4-otp-25/.mix/escripts:$PATH"

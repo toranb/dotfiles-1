@@ -124,11 +124,6 @@ export MANPAGER=$PAGER
 export GIT_PAGER=$PAGER
 export BROWSER='chromium-browser'
 # >>2
-# Specify virtualenv directories <<2
-#-------------------------------------------------------------------------------
-export WORKON_HOME=$HOME/.virtualenvs
-export PROJECT_HOME=$HOME/VirtualDevEnvs
-# >>2
 # Eliminate lag between transition from normal/insert mode <<2
 #-------------------------------------------------------------------------------
 # If this causes issue with other shell commands it can be raised default is 4
@@ -166,21 +161,20 @@ export TERM='xterm-256color'
 #===============================================================================
 # Workon virtualenv <<2
 #--------------------------------------------------------------------
-# If we cd into a directory that is named the same as a virtualenv
-# auto activate that virtualenv
+# when directory has uv env activate it
 # -------------------------------------------------------------------
-[[ -a /usr/local/share/python/virtualenvwrapper.sh ]] && source /usr/local/share/python/virtualenvwrapper.sh
-[[ -a /usr/local/bin/virtualenvwrapper.sh ]] && source /usr/local/bin/virtualenvwrapper.sh
-
 workon_virtualenv() {
-  if [[ -d .git ]]; then
-     VENV_CUR_DIR="${PWD##*/}"
-     if [[ -a ~/.virtualenvs/$VENV_CUR_DIR ]]; then
-       deactivate > /dev/null 2>&1
-       source ~/.virtualenvs/$VENV_CUR_DIR/bin/activate
-     fi
+  if [[ -d .venv ]]; then
+    # Check if we're already in the correct virtualenv
+    if [[ "$VIRTUAL_ENV" != "$PWD/.venv" ]]; then
+      # Deactivate any active virtualenv
+      [[ -n "$VIRTUAL_ENV" ]] && deactivate > /dev/null 2>&1
+      # Activate the virtualenv in the current directory
+      source .venv/bin/activate
+    fi
   fi
 }
+
 # >>2
 # Workon node env <<2
 #--------------------------------------------------------------------

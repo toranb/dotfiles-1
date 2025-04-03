@@ -20,6 +20,11 @@ bash Linux/install-packages.sh
 bash Linux/create-symlinks.sh
 ```
 
+## Vim colors
+git clone https://github.com/joshdick/onedark.vim
+# copy colors dir into vim/colors
+# copy autoload dir into vim/autoload
+
 ## Customization
 
 There is no need to fork this repository in order to customize it. Everything
